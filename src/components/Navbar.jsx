@@ -6,6 +6,7 @@ const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#About" },
     { name: "Skills", href: "#Skills" },
+    { name: "Projects", href: "#Projects" },
     { name: "Contact me", href: "#Contact" }
 ];
 
@@ -33,7 +34,7 @@ export const Navbar = () => {
             <div className="container flex items-center justify-between">
                 <a className="text-xl font-bold " href="#home">
                     <span className="relative z-10  text-primary">
-                        <span className="text-glow text-foreground">jk </span>{" "}
+                        <span className="text-glow text-foreground">junaid's </span>{" "}
                         Portflio
                     </span>
 

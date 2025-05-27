@@ -11,13 +11,25 @@ import {
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import  emailjs  from "emailjs-com";
 
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [FormData, setFormData]=useState({
+    name:"",
+    email:"",
+    message:""
+  })
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    emailjs.sendForm(import.meta.env.VITE_Service, import.meta.env.VITE_Template, e.target, import.meta.env.VITE_Public).then((result)=>{
+      setFormData({name:"", email:"", message:""})
+
+    }).catch(()=>console.log("failed to send the message "));
 
     setIsSubmitting(true);
 
@@ -129,8 +141,10 @@ export const ContactSection = () => {
                   id="name"
                   name="name"
                   required
+                  value={FormData.name}
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
                   placeholder="enter your name/company name"
+                  onChange={(e)=>setFormData({...FormData, name: e.target.value})}
                 />
               </div>
 
@@ -147,8 +161,10 @@ export const ContactSection = () => {
                   id="email"
                   name="email"
                   required
+                  value={FormData.email}
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
                   placeholder="example@gmail.com"
+                  onChange={(e)=>setFormData({...FormData, email: e.target.value})}
                 />
               </div>
 
@@ -164,8 +180,10 @@ export const ContactSection = () => {
                   id="message"
                   name="message"
                   required
+                  value={FormData.message}
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary resize-none"
                   placeholder="Hello, I'd like to talk about..."
+                  onChange={(e)=>setFormData({...FormData, message: e.target.value})}
                 />
               </div>
 

@@ -12,7 +12,7 @@ const skills=[
     {name:"Python", level: 90, category:"Backend"},
     {name:"Flask", level: 90, category:"Backend"},
     {name:"MySQL", level: 90, category:"Backend"},
-    {name:"MangoDB", level: 85, category:"Backend"},
+    {name:"MongoDB", level: 85, category:"Backend"},
 
     {name:"Git/GitHub", level: 90, category:"Tools"},
     {name:"Docker", level: 70, category:"Tools"},
